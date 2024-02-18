@@ -70,24 +70,29 @@ h1 {
   font-size: 20px;
 }
 .logo {
-  margin: -10px;
+  display: flex;
+  justify-content: center;
+  margin-top: -10px;
+  margin-bottom: 5px;
 }
 #logo {
-  height: 200px;
+  padding-top: 45px;
   width: auto;
-  animation: rotateLogo 65s linear infinite;
+
+  /* animation: rotateLogo 65s linear infinite; */
 }
-@keyframes rotateLogo {
+/* @keyframes rotateLogo {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */
 .search-div {
   width: 12vw;
   margin-left: 2vw;
+  text-align: center;
 }
 #search {
   background-color: transparent;
@@ -131,4 +136,50 @@ h6,
 h5 {
   margin-top: 1vh;
   margin-bottom: 1vh;
+}
+#skyAndClouds {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  font-size: 15px;
+}
+#icon {
+  height: 50px;
+}
+#topContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+#forecast-container {
+  max-width: 850px;
+  background-color: rgba(41, 40, 40, 0.829);
+  height: auto;
+  border-radius: 20px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#forecastDays {
+  min-width: 300px;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.479);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#icon-forecast {
+  height: 100px;
+}
+#forecastDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
