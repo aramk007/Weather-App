@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 export default function Forecast() {
   const [forecast, setForecast] = useState({});
+
+  const forecastApi = async (lat, lon) => {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=${lat}&lon=${lon}&exclude=current,hourly,minutely&appid=ca8c2c7970a09dc296d9b3cfc4d06940`
+    );
+    const data = await response.json();
+    setForecast(data);
+  };
+
   useEffect(() => {
-    const forecastApi = async () => {
-      const response = await fetch(
-        "https://api.openweathermap.org/data/2.5/forecast?q=albuquerque&units=imperial&appid=ca8c2c7970a09dc296d9b3cfc4d06940"
-      );
-      const data = await response.json();
-      setForecast(data);
-    };
-    forecastApi();
+    const lattitude = sessionStorage.getItem("lat");
+    const longitude = sessionStorage.getItem("lon");
+    forecastApi(lattitude, longitude);
   }, []);
   console.log(forecast);
   if (Object.keys(forecast).length === 0) {
@@ -20,7 +24,7 @@ export default function Forecast() {
   return (
     <div id="topContainer">
       <div id="forecast-container">
-        {forecast?.list?.map((item, index) => {
+        {forecast?.daily?.map((item, index) => {
           const forecastDate = new Date(item.dt * 1000);
           return (
             <div key={index} id="forecastDays">
@@ -32,7 +36,8 @@ export default function Forecast() {
                   alt=""
                 />
                 <h3 id="skysForecast">{item.weather[0].description}</h3>
-                <h1>{Math.round(item.main.temp)}°F</h1>
+                <h2>Low: {Math.round(item.temp.min)}°F</h2>
+                <h2>High: {Math.round(item.temp.max)}°F</h2>
               </div>
             </div>
           );
