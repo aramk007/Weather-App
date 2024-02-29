@@ -8,11 +8,9 @@ body {
 }
 .weather-container {
   width: 50%;
-  min-height: 500px;
-
-  margin: auto;
-  margin-top: 100px;
   display: flex;
+  margin: auto;
+  padding-top: 50px;
 }
 .left {
   width: 65%;
@@ -54,8 +52,6 @@ button {
 .bottom-left {
   display: flex;
   justify-content: space-between;
-  /* flex-wrap: wrap; */
-  font-size: 18px;
   padding: 6px;
 }
 h1 {
@@ -63,7 +59,7 @@ h1 {
 }
 .top-left {
   text-align: right;
-  font-size: 25px;
+  font-size: 24px;
   padding: 10px;
 }
 #date {
@@ -185,4 +181,77 @@ h5 {
 }
 h2 {
   margin: 5px;
+}
+.footer {
+  width: 100%;
+  height: 10.5vh;
+  background-color: rgb(21, 24, 24);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+  position: relative;
+}
+
+@media only screen and (max-width: 785px) {
+  .weather-container {
+    width: 100%;
+    padding-top: 0px;
+    height: 76vh;
+  }
+  h1 {
+    font-size: 35px;
+  }
+  .search-div {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 20vh;
+  }
+  #search {
+    width: 100%;
+  }
+  button {
+    margin-top: 2vh;
+    height: fit-content;
+    padding: 1vh 4vw;
+    border-radius: 10px;
+    background-color: #e2531f;
+    border: 1px solid rgb(31, 41, 41);
+    color: white;
+    font-size: 17px;
+  }
+  .bottom-left {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    flex-wrap: wrap;
+  }
+  .footer {
+    width: 100%;
+    height: 15vh;
+    background-color: rgb(21, 24, 24);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 0px;
+  }
+  .right {
+    width: 35%;
+    height: 90vh;
+    background-color: rgba(0, 0, 0, 0.781);
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .logo {
+    display: flex;
+    justify-content: center;
+    margin-top: -30px;
+  }
+  #logo {
+    padding-top: 25px;
+    width: auto;
+
+    /* animation: rotateLogo 65s linear infinite; */
+  }
 }
